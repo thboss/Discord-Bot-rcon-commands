@@ -43,33 +43,6 @@ async def rcon(ctx, *args):
     await ctx.send(embed=embed)
 
 
-
-
-
-    
-    
-        
-    
-        
-            
-        
-            
-        
-            
-            
-                
-                
-                
-
-     
-                
-            
-                
-
-    
-    
-
-
 @bot.command(brief='Live match status')
 async def live(ctx):
     """send rcon command 'get5_status' to server and get response"""
