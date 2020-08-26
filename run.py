@@ -43,31 +43,31 @@ async def rcon(ctx, *args):
     await ctx.send(embed=embed)
 
 
-@bot.command(brief='Force end specific live match')
-@has_permissions(administrator=True)
-async def endmatch(ctx, *args):
-    """force end specific live match"""
-    if len(args) < 1:
-        msg = 'Invalid usage <server number>'
-    else:
-        try:
-            server = SERVERS.split('--')[int(args[0]) - 1].split(':')
-        except (IndexError, TypeError, ValueError):
-            msg = 'Invalid usage <server number>'
-        else:
-            resp = send_rcon_command(server[0], int(server[1]), server[2], 'get5_endmatch')
-            if resp is None:
-                embed = discord.Embed(title=f'Server **{server[3]}** is down!')
-                await ctx.send(embed=embed)
-                return
 
-            if resp:
-                msg = f'Match canceled in server **{server[3]}** by admin **{ctx.author.display_name}**'
-            else:
-                msg = 'Currently, no live match in this server'
 
-    embed = discord.Embed(title=msg)
-    await ctx.send(embed=embed)
+
+    
+    
+        
+    
+        
+            
+        
+            
+        
+            
+            
+                
+                
+                
+
+     
+                
+            
+                
+
+    
+    
 
 
 @bot.command(brief='Live match status')
@@ -106,7 +106,6 @@ async def live(ctx):
 
 
 @rcon.error
-@endmatch.error
 async def rcon_error(ctx, error):
     if isinstance(error, CheckFailure):
         msg = "You don't have permission to use this command!"
